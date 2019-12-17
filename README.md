@@ -1,4 +1,4 @@
-##NonogramJS
+#NonogramJS
 	Simple nonogram game made with vanilla Js, HTML5 and CSS
 Things to work on:
 1. Display selected theme in theme selector
