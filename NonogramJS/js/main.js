@@ -1,5 +1,7 @@
 let puzzleArr;
 
+let scores = new Array();
+
 let startTime;
 let endTime;
 let gridObj = document.getElementById('gameGrid');
@@ -8,28 +10,27 @@ let hintsV = new Array();
 let hintsH = new Array();
 
 gridObj.onclick = function (event) {
-    let target = event.target; // где был клик?
+    let target = event.target;
 
-    if (target.tagName != 'TD' || target.classList.contains('hint'))
-        return; // не на TD? тогда не интересует
-    fillIt(target); // подсветить TD
+    if (target.tagName != 'TD' || target.classList.contains('hint')) return;
+    fillIt(target);
 };
 
 gridObj.oncontextmenu = function (event) {
-    let target = event.target; // где был клик?
-    if (event)
-        event.preventDefault();
-    if (target.tagName != 'TD' || target.classList.contains('hint'))
-        return; // не на TD? тогда не интересует
-    crossIt(target); // подсветить TD
+    let target = event.target;
+    if (event) event.preventDefault();
+    if (target.tagName != 'TD' || target.classList.contains('hint')) return;
+    crossIt(target);
 };
 
 function fillIt(td) {
+    if (td.classList.contains('crossed')) td.classList.toggle('crossed')
     td.classList.toggle('filled')
     checkWinCond();
 }
 
 function crossIt(td) {
+    if (td.classList.contains('filled')) td.classList.toggle('filled')
     td.classList.toggle('crossed')
 }
 
@@ -95,52 +96,69 @@ function startGame(level) {
     switch (level) {
         case '1':
             puzzleArr = [
-                [1, 0, 0, 0, 0, 0, 0],
-                [1, 0, 0, 0, 0, 0, 0],
-                [1, 0, 0, 0, 0, 0, 0],
-                [1, 0, 0, 0, 0, 0, 0],
-                [1, 0, 0, 0, 0, 0, 0],
-                [1, 0, 0, 0, 0, 0, 0],
-                [1, 0, 0, 0, 0, 0, 0]
+                [0, 0, 1, 0, 0],
+                [0, 1, 0, 1, 0],
+                [1, 0, 1, 0, 1],
+                [0, 1, 0, 1, 0],
+                [0, 0, 1, 0, 0]
             ];
             break;
+
         case '2':
             puzzleArr = [
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-                [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-                [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0],
-                [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1],
-                [1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-                [0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0]
+                [0, 0, 1, 1, 0, 0, 0, 1, 1, 0],
+                [0, 1, 0, 0, 1, 0, 1, 0, 0, 1],
+                [0, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+                [0, 0, 1, 1, 0, 1, 0, 1, 1, 0],
+                [0, 0, 0, 1, 1, 1, 1, 1, 0, 0],
+                [0, 0, 1, 1, 1, 0, 1, 1, 1, 0],
+                [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+                [0, 1, 1, 1, 1, 1, 1, 1, 1, 0]
             ];
             break;
         case '3':
             puzzleArr = [
-                [0, 1, 0, 1, 0],
-                [0, 1, 0, 1, 0],
-                [0, 0, 0, 0, 0],
-                [1, 0, 0, 0, 1],
-                [0, 1, 1, 1, 0]
+                [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+                [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+                [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+                [1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0],
+                [1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
+                [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+                [0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
+                [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
             ];
             break;
         case '4':
             puzzleArr = [
-                [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                [0, 1, 0, 1, 0, 1, 0, 1, 0],
-                [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                [0, 1, 0, 1, 0, 1, 0, 1, 0],
-                [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                [0, 1, 0, 1, 0, 1, 0, 1, 0],
-                [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                [0, 1, 0, 1, 0, 1, 0, 1, 0],
-                [1, 0, 1, 0, 1, 0, 1, 0, 1]
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+                [0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+                [0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0],
+                [0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+                [0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+                [0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1],
+                [0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1],
+                [1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1],
+                [1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1],
+                [1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+                [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+                [1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0],
+                [0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
             ];
             break;
         case 'rand':
@@ -200,7 +218,7 @@ function checkWinCond() {
         }
     }
     if (curCells == puzzleArr.toString().replace(/\D+/g, '')) {
-        alert('w0w');
+        alert('Great! You solved this puzzle! :)');
         endTime = new Date();
         curScore = Math.ceil((Math.abs(endTime.getTime() - startTime.getTime())) / 1000);
         addNewScore(curScore);
@@ -209,7 +227,9 @@ function checkWinCond() {
 
 function addNewScore(Score) {
     let name = prompt('What is your name? You solved this gram in ' + Score + ' seconds!');
-    localStorage.setItem(localStorage.length + 1, '!' + name + '%' + Score);
+    let tmp = (JSON.parse(localStorage.getItem('leaderboard'))) ? JSON.parse(localStorage.getItem('leaderboard')) : new Array();
+    tmp.push('!' + name + '%' + Score)
+    localStorage.setItem('leaderboard', JSON.stringify(tmp));
 }
 
 function resetGame() {
@@ -225,4 +245,8 @@ function clearLS() {
 
 function changeCS(scheme) {
     document.getElementById('colorScheme').href = 'css/colorSchemes/' + scheme + '.css';
+    localStorage.setItem('theme', scheme);
 }
+
+resetGame();
+startGame('1');

@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
-    <link id="colorScheme" rel="stylesheet" href="/css/colorSchemes/classic.css">
+    <link id="colorScheme" rel="stylesheet" href="css/colorSchemes/classic.css">
     <title>Nonogram | Level editor</title>
+    <script>
+        document.getElementById('colorScheme').href = 'css/colorSchemes/' + localStorage.getItem('theme') + '.css';
+    </script>
 </head>
 
 <body>

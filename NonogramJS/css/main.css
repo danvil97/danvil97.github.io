@@ -19,11 +19,16 @@ body {
     justify-content: space-evenly;
     border: 1px solid;
     padding: 10px;
+    flex-wrap: wrap;
+    ;
 }
 
 .menuBar:hover {
     cursor: pointer;
+}
 
+.menuBar * {
+    margin: 10px;
 }
 
 .settingsBar {
@@ -31,15 +36,22 @@ body {
     justify-content: space-evenly;
     border: 1px solid;
     padding: 10px;
+    flex-wrap: wrap;
+}
+
+.settingsBar * {
+    padding: 10px;
+    text-align: center;
+    ;
 }
 
 #gameGrid {
+    display: flex;
     text-align: center;
-    display:flex;
-  /*  position: absolute;
+    /* position: absolute;
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%);*/
+    transform: translate(-50%, -50%); */
 }
 
 #gameGrid table {

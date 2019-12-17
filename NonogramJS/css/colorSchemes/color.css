@@ -1,0 +1,53 @@
+/*
+? MAIN COLORS
+! Tile - 
+! BG - 
+! Hints - 
+! TEXT - 
+*/
+
+*,
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FBF7E5;
+    color: #000;
+}
+
+.menuBar {
+    border-color: #152723;
+}
+
+.settingsBar {
+    border-color: #152723;
+}
+
+#gamegrid table {
+    border-color: #152723;
+}
+
+#gamegrid td {
+    border-color: #152723;
+}
+
+#gameGrid .hint {
+    background-color: #88cfc3;
+}
+
+.filled {
+    background-color: #152723;
+}
+
+.crossed {
+    background-color: #BE0A0D;
+    color: #BE0A0D;
+}
+
+.cell:hover {
+    background-color: gray;
+    transition: 2s;
+}
+
+#board table,
+td {
+    border-color: #152723;
+}
