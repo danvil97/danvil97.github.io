@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/main.css">
     <link id="colorScheme" rel="stylesheet" href="css/colorSchemes/classic.css">
     <script>
-        document.getElementById('colorScheme').href = 'css/colorSchemes/' + localStorage.getItem('theme') + '.css';
+        if (localStorage.getItem('theme')) document.getElementById('colorScheme').href = 'css/colorSchemes/' +
+            localStorage.getItem('theme') + '.css';
     </script>
 </head>
 
@@ -44,6 +45,7 @@
         <button onClick="startGame(document.getElementById('levelID').value)">Start Game</button>
         <button onClick="resetGame()">Reset Game</button>
         <button onClick="clearLS()">Wipe Leaders</button>
+        <>
     </div>
     <div id="gameGrid">
 

@@ -9,7 +9,8 @@
     <link id="colorScheme" rel="stylesheet" href="css/colorSchemes/classic.css">
     <title>Nonogram | Level editor</title>
     <script>
-        document.getElementById('colorScheme').href = 'css/colorSchemes/' + localStorage.getItem('theme') + '.css';
+        if (localStorage.getItem('theme')) document.getElementById('colorScheme').href = 'css/colorSchemes/' +
+            localStorage.getItem('theme') + '.css';
     </script>
 </head>
 
@@ -27,7 +28,7 @@
         <span>Rows</span> <input id="row" type="number">
         <button onClick="genGrid(document.getElementById('row').value,document.getElementById('col').value)">Create
             Grid</button>
-            <button onClick="createPuzzleArray()">Generate Array</button>
+        <button onClick="createPuzzleArray()">Generate Array</button>
     </div>
 
     </div>
