@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <link id="colorScheme" rel="stylesheet" href="/css/colorSchemes/classic.css">
+    <title>Nonogram | Level editor</title>
+</head>
+
+<body>
+    <div class="title">
+        <h1>NonogramJS</h1>
+        <h2>the best puzzle game!</h2>
+    </div>
+    <div class="menuBar">
+        <div onclick="window.location.href='index.html'">Game</div>
+        <div onclick="window.location.href='leaderboards.html'">Leaderboards</div>
+    </div>
+    <div class="settingsBar">
+        <span>Columns</span> <input id="col" type="number">
+        <span>Rows</span> <input id="row" type="number">
+        <button onClick="genGrid(document.getElementById('row').value,document.getElementById('col').value)">Create
+            Grid</button>
+            <button onClick="createPuzzleArray()">Generate Array</button>
+    </div>
+
+    </div>
+    <div id="gameGrid">
+
+    </div>
+    <textarea id="arrOP" cols="30" rows="10"></textarea>
+    <script src="js/maker.js"></script>
+</body>
+
+</html>

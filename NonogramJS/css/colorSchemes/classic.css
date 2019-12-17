@@ -1,0 +1,44 @@
+/*
+? MAIN COLORS
+! Tile - 
+! BG - 
+! Hints - 
+! TEXT - 
+*/
+
+*,
+body {}
+
+.menuBar {
+    border-color: #000;
+}
+
+.settingsBar {
+    border-color: #000;
+}
+
+#gamegrid table {
+    border-color: #000;
+}
+
+#gamegrid td {
+    border-color: #000;
+}
+
+#gameGrid .hint {
+    background-color: rgba(121, 123, 128, 0.384);
+}
+
+.filled {
+    background-color: #000;
+}
+
+.cell:hover {
+    background-color: gray;
+    transition: 2s;
+}
+
+#board table,
+td {
+    border-color: #000;
+}

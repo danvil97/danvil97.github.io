@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nonogram</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link id="colorScheme" rel="stylesheet" href="/css/colorSchemes/classic.css">
+</head>
+
+<body>
+    <div class="title">
+        <h1>NonogramJS</h1>
+        <h2>the best puzzle game!</h2>
+    </div>
+    <div class="menuBar">
+        <div onclick="window.location.href='leaderboards.html'">Leaderboards</div>
+        <div onclick="window.location.href='maker.html'">Level Editor</div>
+    </div>
+    <div class="settingsBar">
+        <div class="levelSelector">
+            <span>Choose map:</span>
+            <select id="levelID">
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+                <option value="4">Level 4</option>
+                <option value="rand">RND Level</option>
+            </select>
+        </div>
+        <div class="colorSelector">
+            <span>Choose color scheme:</span>
+            <select id="colorID" onchange="changeCS(document.getElementById('colorID').value)">
+                <option value="classic">Classic</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="color">Colorful</option>
+            </select>
+        </div>
+        <button onClick="startGame(document.getElementById('levelID').value)">Start Game</button>
+        <button onClick="resetGame()">Reset Game</button>
+        <button onClick="clearLS()">Wipe Leaders</button>
+    </div>
+    <div id="gameGrid">
+
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

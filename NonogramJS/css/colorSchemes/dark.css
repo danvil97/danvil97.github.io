@@ -1,0 +1,48 @@
+/*
+? MAIN COLORS
+! Tile - 
+! BG - 
+! Hints - 
+! TEXT - 
+*/
+
+*,
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color:#fff;
+}
+
+.menuBar {
+    border-color: #fff;
+}
+
+.settingsBar {
+    border-color: #fff;
+}
+
+#gamegrid table {
+    border-color: #fff;
+}
+
+#gamegrid td {
+    border-color: #fff;
+}
+
+#gameGrid .hint {
+    background-color: rgba(121, 123, 128, 0.384);
+}
+
+.filled {
+    background-color: #fff;
+}
+
+.cell:hover {
+    background-color: gray;
+    transition: 2s;
+}
+
+#board table,
+td {
+    border-color: #fff;
+}
