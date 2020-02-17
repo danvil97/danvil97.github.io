@@ -32,14 +32,20 @@
         border:solid 1px black;
         padding:15px;
     }
+    .button-container{
+        display:flex;
+        justify-content:space-around;
+        margin-bottom:30px;
 </style>
 
 <body>
-    <button onclick="printArr()">printArr</button>
-    <button onclick="bubbleSort()">BubbleSort</button>
-    <button onclick="cocktailSort()">CocktailSort</button>
-    <button onclick="selectionSort()">SelectionSort</button>
-    <button onclick="insertionSort()">InsertionSort</button>
+    <div class="button-container">
+        <button onclick="printArr()">printArr</button>
+        <button onclick="bubbleSort()">BubbleSort</button>
+        <button onclick="cocktailSort()">CocktailSort</button>
+        <button onclick="selectionSort()">SelectionSort</button>
+        <button onclick="insertionSort()">InsertionSort</button>
+    </div>
     <div class="content">
         <div id="result">
 
